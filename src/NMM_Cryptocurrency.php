@@ -11,9 +11,10 @@ class NMM_Cryptocurrency {
     private $hasHd;
     private $autopay;
     private $needsConfirmations;
-    private $erc20contract;
-
-    public function __construct($id, $name, $roundPrecision, $logoFilePath, $updateInterval, $symbol, $hasHd, $autopay, $needsConfirmations, $erc20contract) {
+    private $contract_address;
+    private $token_type;
+    // erc20, bep20 , trc20
+    public function __construct($id, $name, $roundPrecision, $logoFilePath, $updateInterval, $symbol, $hasHd, $autopay, $needsConfirmations, $contract_address,$token_type='erc20') {
         $this->id = $id;
         $this->name = $name;
         $this->roundPrecision = $roundPrecision;
@@ -23,7 +24,8 @@ class NMM_Cryptocurrency {
         $this->hasHd = $hasHd;
         $this->autopay = $autopay;
         $this->needsConfirmations = $needsConfirmations;
-        $this->erc20contract = $erc20contract;
+        $this->contract_address =$contract_address;
+        $this->token_type =$token_type;
     }
 
     public function get_id() {
@@ -61,12 +63,15 @@ class NMM_Cryptocurrency {
         return $this->needsConfirmations;
     }
 
-    public function is_erc20_token() {
-        return strlen($this->erc20contract) > 0;
+    public function is_token() {
+        return strlen($this->contract_address) > 0;
     }
 
-    public function get_erc20_contract() {
-        return $this->erc20contract;
+    public function get_contract() {
+        return $this->contract_address;
+    }
+    public function get_token_type() {
+        return $this->token_type;
     }
 }
 
