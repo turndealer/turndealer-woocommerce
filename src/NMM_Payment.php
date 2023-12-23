@@ -191,7 +191,10 @@ class NMM_Payment {
 			$result = NMM_Blockchain::get_erc20_address_transactions('BAT', $address);	
 		}
 		if ($cryptoId === 'BNB') {
-			$result = NMM_Blockchain::get_erc20_address_transactions('BNB', $address);	
+			$result = NMM_Blockchain::get_bnb_address_transactions('BNB', $address);	
+		}
+		if ($cryptoId === 'USDT') {
+			$result = NMM_Blockchain::get_bep20_address_transactions('BNB', $address);	
 		}
 		if ($cryptoId === 'HOT') {
 			$result = NMM_Blockchain::get_erc20_address_transactions('HOT', $address);	
