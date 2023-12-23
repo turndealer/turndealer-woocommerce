@@ -1,6 +1,6 @@
-# Nomiddleman Crypto Payments for Woocommerce [WordPress plugin](https://wordpress.org/plugins/nomiddleman-crypto-payments-for-woocommerce/) 
+# TurnDealer Crypto Payments for Woocommerce 
 
-[Get it in the WordPress plugin repo](https://wordpress.org/plugins/nomiddleman-crypto-payments-for-woocommerce/)
+Added Support for USDT.BEP20 and BNB chain
 
 Classic Mode
 ============
