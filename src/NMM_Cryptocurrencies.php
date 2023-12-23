@@ -57,7 +57,8 @@ class NMM_Cryptocurrencies {
             'VET' => new NMM_Cryptocurrency('VET', 'VeChain', 18, 'vechain_logo_small.png', 60, '', false, false, true, ''),
             'BCD' => new NMM_Cryptocurrency('BCD', 'Bitcoin Diamond', 8, 'bitcoindiamond_logo_small.png', 60, '', false, false, true, ''),
             'BCN' => new NMM_Cryptocurrency('BCN', 'Bytecoin', 8, 'bytecoin_logo_small.png', 60, '', false, false, true, ''),
-            'BNB' => new NMM_Cryptocurrency('BNB', 'Binance Coin', 18, 'binancecoin_logo_small.png', 60, '', false, false, true, ''),
+            'BNB' => new NMM_Cryptocurrency('BNB', 'BNB BSCSCAN', 18, 'binancecoin_logo_small.png', 60, '', false, false, true, ''),
+	    'USDT' => new NMM_Cryptocurrency('USDT', 'USDT.BEP20', 18, 'USDT.png', 60, '', false, false, true, '0x55d398326f99059ff775485246999027b3197955','bep20'),
             'GUSD' => new NMM_Cryptocurrency('GUSD', 'Gemini Dollar', 2, 'geminidollar_logo_small.png', 60, '', false, false, true, '0x056Fd409E1d7A124BD7017459dFEa2F387b6d5Cd'),
             
             
