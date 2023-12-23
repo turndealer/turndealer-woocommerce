@@ -1705,7 +1705,54 @@ class NMM_Blockchain {
 
 		return $result;
 	}
+	public static function get_bep20_address_transactions($cryptoId, $address) {
+		$request = 'http://api.bscscan.com/api?module=account&action=tokentx&address=' . $address . '&startblock=0&endblock=999999999&sort=asc';
 
+		$response = wp_remote_get($request);
+
+		if (is_wp_error($response) || $response['response']['code'] !== 200) {
+			NMM_Util::log(__FILE__, __LINE__, 'FAILED API CALL ( ' . $request . ' ): ' . print_r($response, true));
+
+			$result = array(
+				'result' => 'error',
+				'total_received' => '',
+			);
+
+			return $result;
+		}
+
+		$body = json_decode($response['body']);
+
+		$rawTransactions = $body->result;
+		if (!is_array($rawTransactions)) {
+			$result = array(
+				'result' => 'error',
+				'message' => 'No transactions found',
+			);
+
+			return $result;
+		}
+		$transactions = array();
+
+		foreach($rawTransactions as $rawTransaction) {
+			
+			
+			if (strtolower($rawTransaction->to) === strtolower($address) && $rawTransaction->tokenSymbol === $cryptoId) {
+
+				$transactions[] = new NMM_Transaction($rawTransaction->value,
+												  $rawTransaction->confirmations,
+												  $rawTransaction->timeStamp,
+												  $rawTransaction->hash);
+			}
+		}
+
+		$result = array (
+			'result' => 'success',
+			'transactions' => $transactions,
+		);
+
+		return $result;
+	}
 	private static function get_user_agent_string() {
 		return 'Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.12 (KHTML, like Gecko) Chrome/9.0.576.1 Safari/534.12';
 	}
