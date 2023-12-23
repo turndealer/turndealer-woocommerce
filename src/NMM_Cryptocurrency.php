@@ -14,7 +14,7 @@ class NMM_Cryptocurrency {
     private $contract_address;
     private $token_type;
     // erc20, bep20 , trc20
-    public function __construct($id, $name, $roundPrecision, $logoFilePath, $updateInterval, $symbol, $hasHd, $autopay, $needsConfirmations, $contract_address,$token_type='erc20') {
+    public function __construct($id, $name, $roundPrecision, $logoFilePath, $updateInterval, $symbol, $hasHd, $autopay, $needsConfirmations, $contract_address,$token_type='') {
         $this->id = $id;
         $this->name = $name;
         $this->roundPrecision = $roundPrecision;
